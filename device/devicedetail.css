@@ -1,0 +1,9 @@
+.btn-green-font{
+	color:#32bd60;box-shadow:0; border:none; box-sizing:none;
+}
+
+.btn-outline{
+	color:#c71c22;
+	border:1px solid #c71c22;
+	background-color:background-color:rgba(199,28,34,0);
+}

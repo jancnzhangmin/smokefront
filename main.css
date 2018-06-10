@@ -1,0 +1,7 @@
+
+
+/*页脚按钮组*/
+.x-tuniu.btn-group{ background-color:#fff;}
+.x-tuniu.btn-group .btn{ border-top:0;}
+.x-tuniu.btn-group .btn span{ font-size:12px; font-weight:normal;}
+.x-card.btn-group .btn.active{ color:#32bd60; padding:0;border-top:0;}

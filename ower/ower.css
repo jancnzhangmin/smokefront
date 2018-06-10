@@ -1,0 +1,18 @@
+.bg{
+   background:url(../image/bg01.png);
+   filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+   -moz-background-size:100% 100%;
+   background-size:100% 100%;
+}
+
+.headimg{
+	border-radius: 50%;
+	width:80px;
+	height:80px;
+	border-style:solid solid solid solid;border-color:#000000 #000000 #000000 #000000;
+}
+
+.x-toggle input:checked + label {
+    background-color: #32bd60;
+    
+}

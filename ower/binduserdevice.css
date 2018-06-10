@@ -1,0 +1,9 @@
+.selectstatus{
+	border:10px;
+	border-color:#32bd60;
+	background-color:rgba(50,189,96,0.1);
+}
+
+.btn-green{
+	background:#32bd60; color:#fff;box-shadow:0; border:none; box-sizing:none;
+}
