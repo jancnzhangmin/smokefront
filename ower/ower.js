@@ -19,9 +19,9 @@ define(function(require) {
 	Model.prototype.row5Click = function(event) {
 		justep.Shell.showPage(require.toUrl('./attchuser.w'));
 	};
-	
+
 	Model.prototype.refreshdata = function(event) {
-			var self = this;
+		var self = this;
 		$.ajax({
 			async : false,
 			url : url + "apis/getuserinfo",
@@ -36,7 +36,7 @@ define(function(require) {
 				$(self.getElementByXid("headimage")).attr('src', jsonstr.user.headurl);
 				if (jsonstr.user.phone != null) {
 					$(self.getElementByXid("span2")).text(jsonstr.user.phone);
-				}else{
+				} else {
 					$(self.getElementByXid("span2")).text('未绑定');
 				}
 				if (jsonstr.user.alertsms == 1) {
@@ -58,20 +58,19 @@ define(function(require) {
 	};
 
 	Model.prototype.modelLoad = function(event) {
-	justep.Shell.on("refreshdata", this.refreshdata, this);
-	this.refreshdata();
+		justep.Shell.on("refreshdata", this.refreshdata, this);
+		this.refreshdata();
 
 	};
 
-	Model.prototype.toggle1Change = function(event){
-				var self = this;
-				var status = 0;
-				if(this.comp('toggle1').get('checked')){
-				status =1;
-				}else
-				{
-				status =0;
-				}
+	Model.prototype.toggle1Change = function(event) {
+		var self = this;
+		var status = 0;
+		if (this.comp('toggle1').get('checked')) {
+			status = 1;
+		} else {
+			status = 0;
+		}
 		$.ajax({
 			async : false,
 			url : url + "apis/changealertsms",
@@ -81,7 +80,7 @@ define(function(require) {
 			timeout : 5000,
 			data : {
 				openid : openid,
-				status :status
+				status : status
 			},
 			success : function(jsonstr) {// 客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数
 
@@ -93,15 +92,14 @@ define(function(require) {
 
 	};
 
-	Model.prototype.toggle2Change = function(event){
-				var self = this;
-				var status = 0;
-				if(this.comp('toggle2').get('checked')){
-				status =1;
-				}else
-				{
-				status =0;
-				}
+	Model.prototype.toggle2Change = function(event) {
+		var self = this;
+		var status = 0;
+		if (this.comp('toggle2').get('checked')) {
+			status = 1;
+		} else {
+			status = 0;
+		}
 		$.ajax({
 			async : false,
 			url : url + "apis/changealertswx",
@@ -111,7 +109,7 @@ define(function(require) {
 			timeout : 5000,
 			data : {
 				openid : openid,
-				status :status
+				status : status
 			},
 			success : function(jsonstr) {// 客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数
 

@@ -57,7 +57,7 @@ define(function(require) {
 
 	Model.prototype.modelUnLoad = function(event) {
 		clearInterval(mytimer);
-				justep.Shell.fireEvent("refreshdata", {
+		justep.Shell.fireEvent("refreshdata", {
 			id : 'id的值'
 		});
 	};

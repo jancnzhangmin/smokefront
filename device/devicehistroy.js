@@ -1,14 +1,13 @@
-define(function(require){
+define(function(require) {
 	var $ = require("jquery");
 	var justep = require("$UI/system/lib/justep");
-var sn;
-	var Model = function(){
+	var sn;
+	var Model = function() {
 		this.callParent();
 	};
-	
-	
-	Model.prototype.refreshdata = function(){
-			var self = this;
+
+	Model.prototype.refreshdata = function() {
+		var self = this;
 		$.ajax({
 			async : false,
 			url : url + "apis/getuserdevicehisory",
@@ -23,8 +22,8 @@ var sn;
 				var data = self.comp("devicehistroyData");
 				data.clear();
 				$.each(jsonstr.devicehistroy, function(i, item) {
-				var dateTime = new Date(item.ctimestramp);
-				var mydate = justep.Date.toString(dateTime, "yyyy-MM-dd hh:mm:ss");
+					var dateTime = new Date(item.ctimestramp);
+					var mydate = justep.Date.toString(dateTime, "yyyy-MM-dd hh:mm:ss");
 					var options = {
 						defaultValues : [ {
 							id : item.id,
@@ -43,24 +42,24 @@ var sn;
 		});
 	};
 
-	Model.prototype.modelParamsReceive = function(event){
-sn = event.params.data.sn;
-this.refreshdata();
+	Model.prototype.modelParamsReceive = function(event) {
+		sn = event.params.data.sn;
+		this.refreshdata();
 	};
 
-	Model.prototype.scrollView1PullDown = function(event){
-this.refreshdata();
+	Model.prototype.scrollView1PullDown = function(event) {
+		this.refreshdata();
 	};
 
-	Model.prototype.row1Click = function(event){
-	var row = event.bindingContext.$object;
-					var params = {
-						data : {
-							sn : row.val('sn'),
-							id : row.val('id')
-						}
-					}
-					justep.Shell.showPage(require.toUrl("./devicehistroydetail.w"), params);
+	Model.prototype.row1Click = function(event) {
+		var row = event.bindingContext.$object;
+		var params = {
+			data : {
+				sn : row.val('sn'),
+				id : row.val('id')
+			}
+		}
+		justep.Shell.showPage(require.toUrl("./devicehistroydetail.w"), params);
 	};
 
 	return Model;

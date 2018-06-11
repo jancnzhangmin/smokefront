@@ -93,8 +93,6 @@ define(function(require) {
 			}
 		});
 
-
-
 	};
 
 	Model.prototype.movemap = function(address) {
@@ -115,7 +113,7 @@ define(function(require) {
 	Model.prototype.modelParamsReceive = function(event) {
 
 		this.comp('snInput').val(event.params.data.sn);
-				var self = this;
+		var self = this;
 		$.ajax({
 			async : false,
 			url : url + "apis/getdevicebysn",

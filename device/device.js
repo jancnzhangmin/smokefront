@@ -37,10 +37,10 @@ define(function(require) {
 								scanType : [ "qrCode", "barCode" ], // 可以指定扫二维码还是一维码，默认二者都有
 								success : function(res) {
 									var result = res.resultStr.split(","); // 当needResult
-									if(result.length ==2){
-									self.comp('qrInput').val(result[1]);
-									}else{
-									self.comp('qrInput').val('YGN' + result[0]);
+									if (result.length == 2) {
+										self.comp('qrInput').val(result[1]);
+									} else {
+										self.comp('qrInput').val('YGN' + result[0]);
 									}
 									// 为
 									// 1 时，扫码返回的结果
@@ -104,7 +104,7 @@ define(function(require) {
 	};
 
 	Model.prototype.modelLoad = function(event) {
-	justep.Shell.on("refreshdevice", this.refreshdevice, this);
+		justep.Shell.on("refreshdevice", this.refreshdevice, this);
 		this.refreshdevice();
 	};
 
@@ -155,14 +155,14 @@ define(function(require) {
 		});
 	}
 
-	Model.prototype.li4Click = function(event){
-	var row = event.bindingContext.$object;
-					var params = {
-						data : {
-							id : row.val('id')
-						}
-					}
-					justep.Shell.showPage(require.toUrl("./devicedetail.w"), params);
+	Model.prototype.li4Click = function(event) {
+		var row = event.bindingContext.$object;
+		var params = {
+			data : {
+				id : row.val('id')
+			}
+		}
+		justep.Shell.showPage(require.toUrl("./devicedetail.w"), params);
 	};
 
 	return Model;

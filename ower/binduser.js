@@ -16,16 +16,16 @@ define(function(require) {
 			jsonp : 'callback',
 			timeout : 5000,
 			data : {
-				phone:self.comp('phoneInput').val(),
-				openid:openid
+				phone : self.comp('phoneInput').val(),
+				openid : openid
 			},
 			success : function(jsonstr) {// 客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数
 				if (jsonstr.status == 1) {
 					justep.Util.hint("绑定用户成功");
 					self.close();
-				} else if(jsonstr.status == 0) {
+				} else if (jsonstr.status == 0) {
 					justep.Util.hint("用户不存在");
-				}else{
+				} else {
 					justep.Util.hint("不能绑定自己");
 				}
 			},
@@ -41,7 +41,7 @@ define(function(require) {
 		});
 	};
 
-	Model.prototype.modelLoad = function(event){
+	Model.prototype.modelLoad = function(event) {
 
 	};
 

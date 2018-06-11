@@ -1,13 +1,13 @@
-define(function(require){
+define(function(require) {
 	var $ = require("jquery");
 	var justep = require("$UI/system/lib/justep");
-var userid;
-	var Model = function(){
+	var userid;
+	var Model = function() {
 		this.callParent();
 	};
-	
-	Model.prototype.refreshdata = function(){
-			var self = this;
+
+	Model.prototype.refreshdata = function() {
+		var self = this;
 		$.ajax({
 			async : false,
 			url : url + "apis/getattchuserdetail",
@@ -52,27 +52,28 @@ var userid;
 			}
 		});
 	};
-	
 
-	Model.prototype.modelParamsReceive = function(event){
-	
-	this.comp('title').set({'title':event.params.data.phone});
-	userid = event.params.data.id;
-	this.refreshdata();
+	Model.prototype.modelParamsReceive = function(event) {
+
+		this.comp('title').set({
+			'title' : event.params.data.phone
+		});
+		userid = event.params.data.id;
+		this.refreshdata();
 
 	};
 
-	Model.prototype.button1Click = function(event){
-					var params = {
-						data : {
-							id : userid
-						}
-					}
-					justep.Shell.showPage(require.toUrl("./binduserdevice.w"), params);
+	Model.prototype.button1Click = function(event) {
+		var params = {
+			data : {
+				id : userid
+			}
+		}
+		justep.Shell.showPage(require.toUrl("./binduserdevice.w"), params);
 	};
 
-	Model.prototype.i2Click = function(event){
-	var row = event.bindingContext.$object;
+	Model.prototype.i2Click = function(event) {
+		var row = event.bindingContext.$object;
 		var self = this;
 		$.ajax({
 			async : false,
@@ -83,10 +84,10 @@ var userid;
 			timeout : 5000,
 			data : {
 				userid : userid,
-				deviceid:row.val('id')
+				deviceid : row.val('id')
 			},
 			success : function(jsonstr) {// 客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数
-self.refreshdata();
+				self.refreshdata();
 			},
 			error : function(xhr) {
 				// justep.Util.hint("错误，请检查网络");
@@ -94,8 +95,8 @@ self.refreshdata();
 		});
 	};
 
-	Model.prototype.modelActive = function(event){
-this.refreshdata();
+	Model.prototype.modelActive = function(event) {
+		this.refreshdata();
 	};
 
 	return Model;

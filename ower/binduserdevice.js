@@ -18,7 +18,7 @@ define(function(require) {
 			timeout : 5000,
 			data : {
 				openid : openid,
-				userid:userid
+				userid : userid
 			},
 			success : function(jsonstr) {// 客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数
 				var data = self.comp("deviceData");
@@ -101,10 +101,10 @@ define(function(require) {
 			timeout : 5000,
 			data : {
 				id : userid,
-				deviceid:devicearr
+				deviceid : devicearr
 			},
 			success : function(jsonstr) {// 客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数
-			self.close();
+				self.close();
 
 			},
 			error : function(xhr) {

@@ -1,21 +1,21 @@
-define(function(require){
+define(function(require) {
 	var $ = require("jquery");
 	var justep = require("$UI/system/lib/justep");
 
-	var Model = function(){
+	var Model = function() {
 		this.callParent();
 	};
 
-	Model.prototype.button1Click = function(event){
-justep.Shell.showPage(require.toUrl('./binduser.w'));
+	Model.prototype.button1Click = function(event) {
+		justep.Shell.showPage(require.toUrl('./binduser.w'));
 	};
 
-	Model.prototype.modelLoad = function(event){
-this.refreshdata();
+	Model.prototype.modelLoad = function(event) {
+		this.refreshdata();
 	};
-	
-	Model.prototype.refreshdata = function(){
-			var self = this;
+
+	Model.prototype.refreshdata = function() {
+		var self = this;
 		$.ajax({
 			async : false,
 			url : url + "apis/getchildrenuser",
@@ -52,19 +52,19 @@ this.refreshdata();
 		});
 	};
 
-	Model.prototype.row1Click = function(event){
-	var row = event.bindingContext.$object;
-					var params = {
-						data : {
-							id : row.val('id'),
-							phone:row.val('phone')
-						}
-					}
-					justep.Shell.showPage(require.toUrl("./attchuserdetail.w"), params);
+	Model.prototype.row1Click = function(event) {
+		var row = event.bindingContext.$object;
+		var params = {
+			data : {
+				id : row.val('id'),
+				phone : row.val('phone')
+			}
+		}
+		justep.Shell.showPage(require.toUrl("./attchuserdetail.w"), params);
 	};
 
-	Model.prototype.modelActive = function(event){
-this.refreshdata();
+	Model.prototype.modelActive = function(event) {
+		this.refreshdata();
 	};
 
 	return Model;
